@@ -1,0 +1,431 @@
+/* =========================================
+   GLOBAL RESET & BASE
+========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #000000; /* starting color */
+  color: #fff;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.5s ease; /* smooth background change */
+}
+
+/* =========================================
+   HEADER & NAVIGATION
+========================================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  z-index: 999;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff69b4;
+}
+
+/* =========================================
+   MAIN & WRAPPER FOR SCALING
+========================================= */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================================
+   SECTIONS
+========================================= */
+section {
+  min-height: 100vh;
+  padding: 140px 50px; /* increased spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   HOME SECTION
+========================================= */
+.home-inner {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 70px; /* increased */
+  flex-wrap: wrap;
+}
+
+.home-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+  box-shadow: 0 0 22px #ff69b4;
+  border: 3px solid #ff69b4;
+}
+
+.greeting {
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: #ff69b4;
+  letter-spacing: 1px;
+  font-size: 1.35em;
+}
+
+.hero {
+  font-size: 3em;
+  font-weight: 600;
+}
+
+.phantom:hover {
+  color: #ffb6c1;
+  text-shadow: 0 0 12px #ff69b4;
+}
+
+.quote {
+  font-style: italic;
+  color: #ff69b4;
+  margin-bottom: 14px;
+  max-width: 600px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.quote-author {
+  display: block;
+  margin-top: 12px;
+  font-style: italic;
+  color: #ff69b4;
+  font-size: 1.05em;
+  text-align: center;
+}
+
+.intro {
+  text-align: left;
+  line-height: 2;
+  color: #ccc;
+  max-width: 600px;
+  font-size: 1.15em;
+  margin-top: 20px;
+}
+
+/* =========================================
+   TITLES & CARDS
+========================================= */
+.section-title {
+  font-size: 2.8em;
+  margin-bottom: 35px;
+  font-weight: 600;
+  text-align: center;
+  color: #ff69b4;
+  transition: all 0.3s ease;
+}
+
+.section-title:hover {
+  color: #ff1493;
+  text-shadow: 0 0 15px #ff1493, 0 0 30px #ff69b4;
+}
+
+/* =========================================
+   ABOUT ME
+========================================= */
+.about-card.about-grid {
+  display: flex;
+  gap: 40px; /* space between left and right boxes */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-left-box,
+.about-right-box {
+  flex: 1 1 320px;
+  background: linear-gradient(145deg, rgba(255,105,180,0.05), rgba(255,105,180,0.02));
+  border-radius: 16px;
+  padding: 36px 32px;
+  line-height: 2;
+  color: #ccc;
+  font-size: 1.25rem;
+  text-align: center;
+  border: 2px solid #ff69b4;
+  box-shadow: 0 0 12px #ff69b4, 0 0 24px rgba(255,105,180,0.4);
+  transition: all 0.4s ease;
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+.about-left-box:hover,
+.about-right-box:hover {
+  border-color: #ff1493;
+  box-shadow: 0 0 25px #ff69b4, 0 0 50px #ff1493;
+  background: linear-gradient(145deg, rgba(255,105,180,0.1), rgba(255,20,147,0.05));
+}
+
+/* Icons inside About Me boxes */
+.about-left-box .icon,
+.about-right-box .icon {
+  margin-right: 12px;
+  font-size: 1.4em;
+  color: #ff69b4;
+  text-shadow: 0 0 6px #ff69b4, 0 0 12px #ff1493;
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+
+.about-left-box:hover .icon,
+.about-right-box:hover .icon {
+  color: #ff1493;
+  text-shadow: 0 0 10px #ff1493, 0 0 20px #ff69b4;
+}
+
+/* =========================================
+   SKILLS
+========================================= */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+}
+
+.skill-circle {
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+  border: 3px solid #ff69b4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  padding: 16px;
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+.skill-circle:hover {
+  background-color: #ff69b4;
+  color: #000;
+  transform: scale(1.08);
+}
+
+/* =========================================
+   STATS
+========================================= */
+.statistics-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.stat-box {
+  text-align: center;
+  width: 370px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 2px solid #ff69b4;
+  border-radius: 14px;
+  padding: 36px;
+}
+
+.stat-box canvas {
+  width: 280px !important;
+  height: 280px !important;
+  margin: 10px auto;
+}
+
+/* =========================================
+   POPUP
+========================================= */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 99999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.popup-content {
+  background-color: #1a1a1a;
+  padding: 42px 52px;
+  border-radius: 14px;
+  border: 2px solid #ff69b4;
+  text-align: center;
+  max-width: 460px;
+  box-shadow: 0 0 20px #ff69b4;
+  position: relative;
+  z-index: 100000;
+}
+
+.close-btn {
+  border: 1px solid #ff69b4;
+  color: #ff69b4;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background-color: #ff69b4;
+  color: #000;
+}
+
+/* =========================================
+   SOCIALS & FOOTER
+========================================= */
+.socials-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+}
+
+.social-link {
+  color: #ffb6c1;
+  text-decoration: none;
+  font-size: 1.4em;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  color: #ff1493;
+  text-shadow: 0 0 12px #ff69b4;
+}
+
+.site-footer {
+  text-align: center;
+  color: #ff69b4;
+  font-size: 1em;
+  padding: 24px 0;
+  background: rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   WRAPPER FIX (NO SCALE)
+========================================= */
+.content-scale {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+  section {
+    padding: 120px 20px;
+  }
+
+  .home-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .home-right {
+    margin-top: 40px;
+  }
+
+  .statistics-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
+
+  .avatar {
+    width: 180px;
+    height: 180px;
+  }
+
+  .stat-box {
+    width: 95%;
+  }
+
+  .skill-circle {
+    width: 170px;
+    height: 170px;
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 2.2em;
+  }
+
+  .about-card.about-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .about-left-box,
+  .about-right-box {
+    width: 100%;
+    font-size: 1.1rem; /* smaller for mobile */
+    padding: 24px;
+  }
+}
+
+/* =========================================
+   SECTION COLORS FOR SCROLL TRANSITION
+========================================= */
+section[data-bgcolor] {
+  transition: background 0.5s ease;
+}
